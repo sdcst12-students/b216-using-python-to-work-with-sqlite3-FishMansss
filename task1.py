@@ -19,13 +19,26 @@ Fred Jones      fred@city.com   6045553434      102     75 57 Street            
 Leroy Jenkins   leroy@wow.ca    2342222323      103     65 Blizzard Ave         100     
 Jen Mezei       jen@shaw.ca     6042231134      104     891 Cullen Cresc        0
 """
+
+
+
+
+##setup
 import sqlite3
 file = 'dbase.db'
 connection = sqlite3.connect(file)
 cursor = connection.cursor()
 
-#cursor.execute("CREATE TABLE vet (name tinytext, email tinytext, phoneNum int,  ID integer primary key autoincrement, address tinytext, balance int);")
+
+##queries
+
+##cursor.execute("CREATE TABLE vet (name tinytext, email tinytext, phoneNum int,  ID integer primary key autoincrement, address tinytext, balance int);")
 cursor.execute("INSERT INTO vet (name, email, phoneNum, ID, address, balance) values ('Joe Smith', 'joe@gmail.com', 7783341111, 101, '1234 Sesame Street', 0);")
 cursor.execute("INSERT INTO vet (name, email, phoneNum, ID, address, balance) values ('Fred Jones', 'fred@city.com', 6045553434, 102, '75 57 Street', 0);")            
 cursor.execute("INSERT INTO vet (name, email, phoneNum, ID, address, balance) values ('Leroy Jenkins',   'leroy@wow.ca',    2342222323,      103,     '65 Blizzard Ave', 100);")
 cursor.execute("INSERT INTO vet (name, email, phoneNum, ID, address, balance) values ('Jen Mezei', 'jen@shaw.ca', 6042231134, 104, '891 Cullen Cresc', 0);")
+
+connection.commit()
+
+
+##done

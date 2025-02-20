@@ -21,3 +21,12 @@ Casey           cat             Siberian        8    m          true            
 Friend          cat             Domestic        4    m          false               102
 Copper          dog             Beagle          12   m          true                104
 """
+
+##setup
+import sqlite3
+file = 'dbase.db'
+connection = sqlite3.connect(file)
+cursor = connection.cursor()
+
+#table creation
+cursor.execute("CREATE TABLE pet (name tinytext, species tinytext, breed tinytext,  age int, gender tinytext, sn tinytext, id integer primary key autoincrement );")
