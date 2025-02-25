@@ -17,3 +17,20 @@ import sqlite3
 file = 'dbase.db'
 connection = sqlite3.connect(file)
 cursor = connection.cursor()
+
+cursor.execute("CREATE TABLE score(home tinytext, homeScore int, away tinytext, awayScore int);")
+
+x = 0
+
+for i in scores:
+    for j in i:
+        if x==0:    
+            cursor.execute(f'INSERT INTO scores(home) values("{j}")')
+            cursor.execute(f"INSERT INTO score(homeScore) values({i[j]});")
+            x+=1
+        if x==1:
+            cursor.execute(f'INSERT INTO scores(away)) values("{j}")')
+            cursor.execute(f"INSERT INTO score(awayScore) values({i[j]});")
+            x-=1
+
+##almost            

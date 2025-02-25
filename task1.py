@@ -37,7 +37,9 @@ cursor.execute("INSERT INTO vet (name, email, phoneNum, ID, address, balance) va
 cursor.execute("INSERT INTO vet (name, email, phoneNum, ID, address, balance) values ('Fred Jones', 'fred@city.com', 6045553434, 102, '75 57 Street', 0);")            
 cursor.execute("INSERT INTO vet (name, email, phoneNum, ID, address, balance) values ('Leroy Jenkins',   'leroy@wow.ca',    2342222323,      103,     '65 Blizzard Ave', 100);")
 cursor.execute("INSERT INTO vet (name, email, phoneNum, ID, address, balance) values ('Jen Mezei', 'jen@shaw.ca', 6042231134, 104, '891 Cullen Cresc', 0);")
-
+cursor.execute("select * from vet;")
+r = cursor.fetchall()
+print(r)
 connection.commit()
 
 
