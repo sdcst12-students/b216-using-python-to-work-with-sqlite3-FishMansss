@@ -31,9 +31,9 @@ cursor = connection.cursor()
 #table creation
 cursor.execute("DROP TABLE pet;")
 
-cursor.execute("CREATE TABLE pet (name tinytext, species tinytext, breed tinytext,  age int, gender tinytext, sn tinytext, id integer primary key autoincrement );")
+cursor.execute("CREATE TABLE pet (id integer primary key autoincrement, name tinytext, species tinytext, breed tinytext,  age int, gender tinytext, sn tinytext );")
 
-cursor.execute("INSERT INTO pet (name , species, breed, age, gender, sn, id) values ('Fluffy', 'dog', 'Pomeraniam', 5, 'm', 'true', 101);")
+cursor.execute("INSERT INTO pet (name , species, breed, age, gender, sn) values ('Fluffy', 'dog', 'Pomeraniam', 5, 'm', 'true', 101);")
 
 cursor.execute("select * from pet;")
 r = cursor.fetchall()
