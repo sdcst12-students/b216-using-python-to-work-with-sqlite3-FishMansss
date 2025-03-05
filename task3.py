@@ -17,18 +17,15 @@ import sqlite3
 file = 'dbase.db'
 connection = sqlite3.connect(file)
 cursor = connection.cursor()
-try:
-    cursor.execute("DROP TABLE scores;")
-except:
-    pass
+cursor.execute('drop table scores;')
 
-cursor.execute("CREATE TABLE scores(id integer primary key autoincrement, home tinytext, homeScore int, away tinytext, awayScore int);")
-x = 0
-for i in scores:
+cursor.execute("CREATE TABLE scores(home tinytext, homeScore int, away tinytext, awayScore int);")
+
+for i in scores:    
     x = (f'INSERT INTO scores(home, homeScore, away, awayScore) values("{i['home']}", {i['homeScore']}, "{i['away']}", {i['awayScore']})')
     cursor.execute(x)
-        
-        
+
+
 
 cursor.execute("select * from scores;")
 print(cursor.fetchall)
